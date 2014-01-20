@@ -19,10 +19,12 @@ public final class BusProvider {
 
     @Override
     public void post(final Object event) {
+      // if I'm already on the main thread, I can just post
       if (Looper.myLooper() == Looper.getMainLooper()) {
         super.post(event);
       }
-      else {
+      else // otherwise, wrap the post in mainThreadHandler
+      {
         mainThreadHandler.post(new Runnable() {
           @Override
           public void run() {

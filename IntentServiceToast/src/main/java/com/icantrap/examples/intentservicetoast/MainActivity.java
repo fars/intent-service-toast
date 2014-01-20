@@ -41,7 +41,7 @@ public class MainActivity extends ActionBarActivity {
 
   @Subscribe
   public void onToastRequest(ToastRequest request) {
-    Toast.makeText(this, request.getMessage(), request.getDuration()).show();
+    Toast.makeText(this, request.message, request.duration).show();
   }
 
   /**
